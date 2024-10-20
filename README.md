@@ -78,3 +78,33 @@ This Octave Simulator implements basic functionalities of the Octave programming
 If an unrecognized command is entered, the program will display the message: **“Unrecognized command.”** 
 
 Make sure to enter the commands and parameters correctly to avoid execution errors. The program assumes that all input is valid according to the specifications provided. Enjoy using the Octave Simulator!
+
+# Implementation Overview
+
+The designed program creates a three-dimensional matrix and employs a resizable array algorithm to adjust its size whenever a new matrix needs to be added. The dimensions of the matrices are stored in dynamically allocated arrays, facilitating efficient memory management and scalability.
+
+The core functionality is governed by a switch-case structure that processes commands read from standard input (STDIN). This structure operates within an infinite loop that continues until the command character `Q` is received, which triggers memory deallocation and terminates the program.
+
+To enhance modularity and maintainability, each command is encapsulated within its dedicated function. This design approach allows for cleaner code organization and easier debugging.
+
+### Key Functionalities
+
+1. **Matrix Resizing:**
+   In the resizing function, matrix dimensions are stored in arrays. A copy of the current matrix is maintained to facilitate the transfer of values into the newly resized matrix. This approach ensures that all existing data is preserved and properly managed during resizing operations.
+
+2. **Sorting Matrices:**
+   The sorting function utilizes the selection sort algorithm to order matrices based on the sum of their elements, calculated modulo 10007. This function sorts both the matrix elements and their respective dimensions concurrently, ensuring that matrices are efficiently arranged in ascending order while maintaining consistency in their properties.
+
+3. **Transposing a Matrix:**
+   For the transpose function, a dynamically allocated copy of the original matrix is created to facilitate the transfer of values into the transposed matrix. The function accurately swaps rows and columns, and once the transposition is complete, it deallocates the memory previously allocated for the temporary storage.
+
+4. **Matrix Multiplication:**
+   The matrix multiplication function employs a traditional \(O(n^3)\) algorithm, ensuring that each operation adheres to the modulo 10007 constraint to prevent overflow and maintain numerical accuracy. The resulting matrix from the multiplication is appended to the end of the three-dimensional matrix structure.
+
+5. **Exponentiation of a Matrix:**
+   To efficiently raise a matrix to a given power, the program recursively employs the matrix multiplication function. This approach reduces the computational complexity to \(O(\log n)\), enhancing performance for larger matrices.
+
+6. **Memory Deallocation:**
+   The program includes specific functions for freeing dynamically allocated memory. This process ensures that all resources are properly released when they are no longer needed, preventing memory leaks and optimizing resource management.
+
+Overall, the implementation focuses on modular design, efficient memory handling, and the use of standard algorithms to provide a robust solution for simulating matrix operations akin to those found in the Octave programming language.
