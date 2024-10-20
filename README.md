@@ -3,7 +3,7 @@ This Octave Simulator implements basic functionalities of the Octave programming
 
 ## User Guide
 
-### Loading a Matrix
+## Loading a Matrix
    - **Command:** `L m n`
    - **Parameters:**
      - `m`: Number of rows.
